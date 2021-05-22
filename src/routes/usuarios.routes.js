@@ -11,14 +11,7 @@ router.get('/', async ctx => {
 });
 
 router.get('/:id', async ctx => {
-    let response = {
-        message: 'Service ' + prefix,
-        response: {
-            response1: ctx.request,
-            response2: ctx.params
-        }
-    }
-    ctx.body = response;
+    ctx.body = Usuarios.consultaPorId(ctx.params.id);
 });
 
 router.post('/', async ctx => {
@@ -26,14 +19,7 @@ router.post('/', async ctx => {
 });
 
 router.put('/:id', async ctx => {
-    let response = {
-        message: 'Service ' + prefix,
-        response: {
-            response1: ctx.request,
-            response2: ctx.params
-        }
-    }
-    ctx.body = response;
+    ctx.body = Usuarios.actualizar(ctx.params.id, ctx.request.body);
 });
 
 router.delete('/:id', async ctx => {

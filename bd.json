@@ -1,1 +1,1 @@
-[{"id":"c258d936-56da-458c-8aee-3ad3a817a87e","nombre":"David Cruz","email":"david@gmail.com","password":"123456"}]
+{"usuarios":[],"proveedores":[{"nombre":"Proveedor 1","numeroTelefono":"542345653","direccion":"Direccion 1","razonSocial":"Proveedor1 SA DE CV","id":"86bee6b3-0c77-4eb1-86bc-069cec189155"},{"id":"0a62faef-c595-4aec-b798-8b339d8cf4f4","nombre":"Proveedor 2","numeroTelefono":"542345653","direccion":"Direccion 1","razonSocial":"Proveedor1 sa de cv"}]}

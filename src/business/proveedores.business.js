@@ -1,10 +1,10 @@
-const UsuariosService = require('../service/usuario.service');
+const ProveedoresService = require('../service/proveedores.service');
 
 exports.consulta = () => {
     return {
         status: 0,
         message: 'Éxito al consultar.',
-        response: UsuariosService.getAll()
+        response: ProveedoresService.getAll()
     }
 }
 
@@ -14,13 +14,13 @@ exports.consultaPorId = (id) => {
         message: '',
         response: null
     }
-    let usuarios = UsuariosService.getOne(id);
-    if (usuarios.length == 0) {
+    let proveedores = ProveedoresService.getOne(id);
+    if (proveedores.length == 0) {
         response.status = 1;
-        response.message = 'No se encontro el usuario';
+        response.message = 'No se encontro el proveedor';
     } else {
         response.message = 'Éxito al consultar';
-        response.response = usuarios;
+        response.response = proveedores;
     }
     return response;
 }
@@ -28,8 +28,8 @@ exports.consultaPorId = (id) => {
 exports.agregar = (newData) => {
     return {
         status: 0,
-        message: 'Usuario se agrego correctamente.',
-        response: UsuariosService.create(newData)
+        message: 'Proveedor se agrego correctamente.',
+        response: ProveedoresService.create(newData)
     }
 }
 
@@ -38,17 +38,17 @@ exports.actualizar = (id, data) => {
         status: 0,
         message: ''
     }
-    let resp = UsuariosService.update(id, data);
+    let resp = ProveedoresService.update(id, data);
     if (resp == 0) {
-        respuesta.message = 'Usuario actualizado correctamente.';
+        respuesta.message = 'Proveedor actualizado correctamente.';
     } else {
         respuesta.status = 1;
-        respuesta.message = 'Error usuario no éxiste.';
+        respuesta.message = 'Error, proveedor no éxiste.';
         
     }
     return respuesta;
 }
 
 exports.eliminar = (id) => {
-    return UsuariosService.delete(id);
+    return ProveedoresService.delete(id);
 }

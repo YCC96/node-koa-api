@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "dotenv": "^9.0.2",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
     "koa-combine-routers": "^4.0.2",

@@ -1,4 +1,5 @@
 const Router = require('koa-router');
+const Proveedores = require('../business/proveedores.business');
 
 const prefix = 'proveedores';
 const router = new Router({
@@ -6,52 +7,23 @@ const router = new Router({
 });
 
 router.get('/', async ctx => {
-    let response = {
-        message: 'Service ' + prefix,
-        response: ctx.request
-    }
-    ctx.body = response;
+    ctx.body = Proveedores.consulta();
 });
 
 router.get('/:id', async ctx => {
-    let response = {
-        message: 'Service ' + prefix,
-        response: {
-            response1: ctx.request,
-            response2: ctx.params
-        }
-    }
-    ctx.body = response;
+    ctx.body = Proveedores.consultaPorId(ctx.params.id);
 });
 
 router.post('/', async ctx => {
-    let response = {
-        message: 'Service ' + prefix,
-        response: ctx.request
-    }
-    ctx.body = response;
+    ctx.body = Proveedores.agregar(ctx.request.body);
 });
 
 router.put('/:id', async ctx => {
-    let response = {
-        message: 'Service ' + prefix,
-        response: {
-            response1: ctx.request,
-            response2: ctx.params
-        }
-    }
-    ctx.body = response;
+    ctx.body = Proveedores.actualizar(ctx.params.id, ctx.request.body);
 });
 
 router.delete('/:id', async ctx => {
-    let response = {
-        message: 'Service ' + prefix,
-        response: {
-            response1: ctx.request,
-            response2: ctx.params
-        }
-    }
-    ctx.body = response;
+    ctx.body = Proveedores.eliminar(ctx.params.id);
 });
 
 module.exports = router;

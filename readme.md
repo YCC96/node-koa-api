@@ -8,3 +8,4 @@ npm install koa-bodyparser --save
 npm install dotenv --save
 npm install koa-combine-routers --save
 npm install uuid --save
+npm install jsonwebtoken --save

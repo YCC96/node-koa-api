@@ -12,34 +12,34 @@ function actualizaDB(data){
 }
 
 exports.getAll = () => {
-    return consultaDB().usuarios;
+    return consultaDB().proveedores;
 }
 
 exports.getOne = (id) => {
-    let usuarios = consultaDB().usuarios;
-    return usuarios.filter( item => {
+    let proveedores = consultaDB().proveedores;
+    return proveedores.filter( item => {
         return (item.id == id)
     });
 }
 
-exports.create = (newUsuario) => {
+exports.create = (newProveedor) => {
     let bd = consultaDB();
-    let usuario = bd.usuarios;
+    let proveedores = bd.proveedores;
     let newItem = {
         id: uuidv4(),
-        ...newUsuario
+        ...newProveedor
     }
-    usuario.push(newItem);
-    bd.usuarios = usuario;
+    proveedores.push(newItem);
+    bd.proveedores = proveedores;
     actualizaDB(bd);
     return newItem;
 }
 
 exports.update = (id, data) => {
     let bd = consultaDB();
-    let usuarios = bd.usuarios;
+    let proveedores = bd.proveedores;
 
-    var idBuscar = usuarios.map((item) => { return item.id; }).indexOf(id);
+    var idBuscar = proveedores.map((item) => { return item.id; }).indexOf(id);
 
     var respuesta = 0;
 
@@ -47,8 +47,8 @@ exports.update = (id, data) => {
         respuesta = 1;
     } else {
         data.id = id;
-        usuarios[idBuscar] = data;
-        bd.usuarios = usuarios;
+        proveedores[idBuscar] = data;
+        bd.proveedores = proveedores;
         actualizaDB(bd);
     }
     return respuesta;
@@ -56,9 +56,9 @@ exports.update = (id, data) => {
 
 exports.delete = (id) => {
     let bd = consultaDB();
-    let usuario = bd.usuarios;
+    let proveedores = bd.proveedores;
     
-    var idBuscar = usuario.map((item) => { return item.id; }).indexOf(id);
+    var idBuscar = proveedores.map((item) => { return item.id; }).indexOf(id);
     
     var dataResult = {
         status: 0,
@@ -70,8 +70,8 @@ exports.delete = (id) => {
         dataResult.status = 1;
         dataResult.mensaje = 'No existe el id.';
     } else {
-        usuario.splice(idBuscar, 1);
-        bd.usuarios = usuario;
+        proveedores.splice(idBuscar, 1);
+        bd.proveedores = proveedores;
         actualizaDB(bd);
         dataResult.mensaje = 'Elemento eliminado con éxito.';
     }
